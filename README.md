@@ -2,7 +2,11 @@
 
 Personal site for [William Blake](https://linkedin.com/in/william-blake-88735936b), software engineer in Auckland. Built with Next.js, TypeScript and Tailwind CSS. Light, white and lucid-blue layout with a custom interactive network in the hero.
 
-Copy lives in one file: [`src/content/site.ts`](src/content/site.ts). Update experience, projects, skills, email and (when you have them) GitHub / live project links there.
+- Live: [william-blake-portfolio.vercel.app](https://william-blake-portfolio.vercel.app)
+- Source: [github.com/wblake3/william-blake-portfolio](https://github.com/wblake3/william-blake-portfolio)
+- Custom domain: `williamblake.dev` (attached on Vercel; buy it to go live)
+
+Copy lives in one file: [`src/content/site.ts`](src/content/site.ts).
 
 ## Local development
 
@@ -18,26 +22,16 @@ npm run build
 npm start
 ```
 
-## Deploy to GitHub and Vercel
+## Deploy
 
-This stack is meant to ship on Vercel and be linked from LinkedIn.
+GitHub is connected to Vercel. Pushing to `main` deploys production automatically.
 
-1. Create a GitHub repository (public is fine for a portfolio).
-2. Add `github` in `src/content/site.ts` so the footer can link to source.
-3. Push this project:
+To finish `williamblake.dev`:
 
-```bash
-git add .
-git commit -m "Add portfolio site"
-git remote add origin https://github.com/YOUR_USER/YOUR_REPO.git
-git branch -M main
-git push -u origin main
-```
+1. Buy it in [Vercel Domains](https://vercel.com/dashboard/domains) ($9.99 first year, $13 renewal). Buying through Vercel sets nameservers for you.
+2. Wait for DNS (usually minutes). SSL is issued automatically.
 
-4. In [Vercel](https://vercel.com), import the GitHub repo. Framework preset: Next.js. Deploy.
-5. Add the Vercel URL (or a custom domain) to your LinkedIn Featured / website field.
-
-Optional custom domain: in Vercel → Project → Settings → Domains.
+Then add `https://williamblake.dev` to LinkedIn.
 
 ## Notes
 

@@ -8,7 +8,7 @@ export const site = {
   hero: {
     eyebrow: "Software Engineer · AI · Auckland",
     headline: "William Blake",
-    lede: "Passionate about AI and focused on it for my career. Strongest across Python, APIs, AI integrations and React — shipping production systems people can trust.",
+    lede: "Passionate about AI and its applications across energy and healthcare. Strongest across Python, APIs, AI integrations and React — shipping production systems people can trust.",
     photo: "/images/william-snow.jpg",
     photoAlt: "William Blake in the mountains",
     primaryCta: { label: "View work", href: "#projects" },
@@ -48,7 +48,7 @@ export const site = {
       image: "/images/health-nz.jpg",
       imageAlt:
         "William Blake with the Health New Zealand spinal cord injury assessment team",
-      imagePosition: "center 40%",
+      imagePosition: "center center",
       summary:
         "Designed, built and delivered production software clinicians used daily — from the screens they touch through to APIs and PostgreSQL.",
       points: [
@@ -62,9 +62,9 @@ export const site = {
       role: "Digital Systems Engineer (Internship)",
       org: "Top Energy Ltd",
       dates: "Nov 2025 — Feb 2026",
-      image: "/images/top-energy.jpg",
-      imageAlt: "William Blake with the Top Energy field crew in high-vis",
-      imagePosition: "center 45%",
+      image: "/images/top-energy.png",
+      imageAlt: "Top Energy Outage Centre map of Northland with planned and unplanned outages",
+      imagePosition: "center center",
       summary:
         "Built cloud data and ML workflows on Azure against real infrastructure — including a production fault-detection model on pole imagery.",
       points: [
@@ -81,7 +81,7 @@ export const site = {
       image: "/images/william-grad.jpg",
       imageAlt:
         "William Blake at graduation holding a Bachelor of Computer and Information Sciences certificate",
-      imagePosition: "center 18%",
+      imagePosition: "center center",
       summary:
         "Software engineering across Python, Java, SQL and TypeScript — building working systems, not just completing labs.",
       points: [

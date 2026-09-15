@@ -25,6 +25,7 @@ export function Experience() {
                     src={item.image}
                     alt={item.imageAlt}
                     fill
+                    quality={90}
                     sizes="(max-width: 1024px) 100vw, 900px"
                     className="object-cover"
                     style={{ objectPosition: item.imagePosition }}

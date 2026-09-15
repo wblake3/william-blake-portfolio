@@ -79,6 +79,11 @@ export function HeroNetwork() {
 
       ctx.clearRect(0, 0, width, height);
 
+      const styles = getComputedStyle(document.documentElement);
+      const nodeFill = styles.getPropertyValue("--network-node").trim() || "#1a6fd4";
+      const coreFill = styles.getPropertyValue("--network-core").trim() || "#7ec8ff";
+      const linkRgb = styles.getPropertyValue("--network-link").trim() || "26, 111, 212";
+      const glowRgb = styles.getPropertyValue("--network-glow").trim() || "59, 158, 255";
       const linkDist = small ? 110 : 168;
 
       if (animate) {
@@ -128,7 +133,7 @@ export function HeroNetwork() {
           const dist = Math.hypot(a.x - b.x, a.y - b.y);
           if (dist < linkDist) {
             const alpha = (1 - dist / linkDist) * 0.55;
-            ctx.strokeStyle = `rgba(26, 111, 212, ${alpha})`;
+            ctx.strokeStyle = `rgba(${linkRgb}, ${alpha})`;
             ctx.lineWidth = 1.15;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -147,18 +152,18 @@ export function HeroNetwork() {
           node.y,
           node.r * 7,
         );
-        glow.addColorStop(0, "rgba(59, 158, 255, 0.45)");
-        glow.addColorStop(1, "rgba(59, 158, 255, 0)");
+        glow.addColorStop(0, `rgba(${glowRgb}, 0.45)`);
+        glow.addColorStop(1, `rgba(${glowRgb}, 0)`);
         ctx.fillStyle = glow;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.r * 7, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = "#1a6fd4";
+        ctx.fillStyle = nodeFill;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = "#7ec8ff";
+        ctx.fillStyle = coreFill;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.r * 0.45, 0, Math.PI * 2);
         ctx.fill();
@@ -214,14 +219,20 @@ export function HeroNetwork() {
     };
     boot();
 
+    const onThemeChange = () => {
+      if (reduced) draw(false);
+    };
+
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerleave", onPointerLeave);
+    window.addEventListener("themechange", onThemeChange);
 
     return () => {
       window.cancelAnimationFrame(raf);
       observer.disconnect();
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerleave", onPointerLeave);
+      window.removeEventListener("themechange", onThemeChange);
       motionQuery.removeEventListener("change", onMotionChange);
     };
   }, []);

@@ -13,8 +13,8 @@ export function Experience() {
       <ol className="relative space-y-8 border-l border-line pl-6 sm:pl-8">
         {site.experience.map((role, index) => (
           <li key={role.org} className="relative">
-            <span className="absolute -left-[31px] top-2 h-3.5 w-3.5 rounded-full border-2 border-white bg-accent shadow-[0_0_0_4px_rgba(59,158,255,0.16)] sm:-left-[39px]" />
-            <Reveal delay={index * 0.08}>
+            <span className="absolute -left-[31px] top-2 h-3.5 w-3.5 rounded-full border-2 border-background bg-accent shadow-[0_0_0_4px_rgba(59,158,255,0.16)] sm:-left-[39px]" />
+            <Reveal delay={index * 0.12} direction={index % 2 === 0 ? "left" : "right"}>
               <article className="glass rounded-3xl p-6 sm:p-8">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <h3 className="text-xl font-semibold tracking-tight text-foreground">

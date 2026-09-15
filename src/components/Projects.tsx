@@ -12,7 +12,11 @@ export function Projects() {
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {site.projects.map((project, index) => (
-          <Reveal key={project.name} delay={index * 0.08}>
+          <Reveal
+            key={project.name}
+            delay={index * 0.1}
+            direction={index % 2 === 0 ? "left" : "right"}
+          >
             <article className="group glass flex h-full flex-col rounded-3xl p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(59,158,255,0.14)] hover:ring-1 hover:ring-accent/30 sm:p-8">
               <div className="flex items-center justify-between gap-3">
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-deep">
@@ -32,7 +36,7 @@ export function Projects() {
                 {project.stack.map((item) => (
                   <li
                     key={item}
-                    className="rounded-full border border-line bg-white/80 px-3 py-1 text-xs text-muted"
+                    className="rounded-full border border-line bg-card px-3 py-1 text-xs text-muted"
                   >
                     {item}
                   </li>

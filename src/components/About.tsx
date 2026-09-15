@@ -8,14 +8,14 @@ export function About() {
   return (
     <Section id="about" eyebrow={about.eyebrow} title={about.title}>
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
-        <Reveal>
-          <div className="space-y-5 text-base leading-7 text-muted sm:text-lg sm:leading-8">
-            {about.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </Reveal>
-        <Reveal delay={0.08}>
+        <div className="space-y-5 text-base leading-7 text-muted sm:text-lg sm:leading-8">
+          {about.body.map((paragraph, index) => (
+            <Reveal key={paragraph} delay={index * 0.1}>
+              <p>{paragraph}</p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.12} direction="right">
           <aside className="glass rounded-3xl p-6 sm:p-7">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-deep">
               Education
@@ -28,7 +28,7 @@ export function About() {
             </p>
             <ul className="mt-5 space-y-3 text-sm leading-6 text-muted">
               {about.education.notes.map((note) => (
-                <li key={note} className="pl-4 relative">
+                <li key={note} className="relative pl-4">
                   <span className="absolute left-0 top-2 h-1.5 w-1.5 rounded-full bg-accent" />
                   {note}
                 </li>
@@ -37,12 +37,12 @@ export function About() {
           </aside>
         </Reveal>
       </div>
-      <Reveal delay={0.12}>
+      <Reveal delay={0.16}>
         <ul className="mt-12 flex flex-wrap gap-2">
           {about.interests.map((interest) => (
             <li
               key={interest}
-              className="rounded-full border border-line bg-white/70 px-3.5 py-1.5 text-sm text-muted"
+              className="rounded-full border border-line bg-card px-3.5 py-1.5 text-sm text-muted"
             >
               {interest}
             </li>

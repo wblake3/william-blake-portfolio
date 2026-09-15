@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --background: #f7faff;
   --foreground: #0b1f33;
   --accent: #3b9eff;
@@ -10,6 +11,31 @@
   --card: rgba(255, 255, 255, 0.72);
   --line: rgba(59, 158, 255, 0.22);
   --glow: rgba(59, 158, 255, 0.18);
+  --hero-glow-1: rgba(126, 200, 255, 0.2);
+  --hero-glow-2: rgba(59, 158, 255, 0.08);
+  --network-node: #1a6fd4;
+  --network-core: #7ec8ff;
+  --network-link: 26, 111, 212;
+  --network-glow: 59, 158, 255;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #07111c;
+  --foreground: #e8f2fb;
+  --accent: #4aa8ff;
+  --accent-soft: #8ad0ff;
+  --accent-deep: #8ad0ff;
+  --muted: #9bb4c9;
+  --card: rgba(14, 30, 48, 0.78);
+  --line: rgba(138, 208, 255, 0.18);
+  --glow: rgba(74, 168, 255, 0.22);
+  --hero-glow-1: rgba(74, 168, 255, 0.22);
+  --hero-glow-2: rgba(74, 168, 255, 0.1);
+  --network-node: #8ad0ff;
+  --network-core: #e8f2fb;
+  --network-link: 138, 208, 255;
+  --network-glow: 74, 168, 255;
 }
 
 @theme inline {
@@ -41,6 +67,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 ::selection {
@@ -53,4 +82,10 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--line);
+}
+
+.hero-wash {
+  background:
+    radial-gradient(900px circle at 78% 18%, var(--hero-glow-1), transparent 55%),
+    radial-gradient(700px circle at 12% 82%, var(--hero-glow-2), transparent 50%);
 }

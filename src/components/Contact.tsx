@@ -26,7 +26,7 @@ export function Contact() {
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center rounded-full border border-line bg-white/80 px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
+              className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
             >
               LinkedIn
             </a>

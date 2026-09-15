@@ -11,7 +11,7 @@ type ThemeContextValue = {
 };
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: "light",
+  theme: "dark",
   toggleTheme: () => {},
 });
 
@@ -25,7 +25,7 @@ export function useTheme() {
 }
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
     const current = document.documentElement.classList.contains("dark")

@@ -7,13 +7,13 @@ export function Contact() {
     <Section
       id="contact"
       eyebrow="Contact"
-      title="Looking for an office-first team doing hard product work."
+      title="Looking for an office-first team doing hard AI product work."
     >
       <Reveal>
         <div className="glass flex flex-col gap-8 rounded-3xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <p className="max-w-xl text-base leading-7 text-muted sm:text-lg">
-            Auckland-based. Happy to talk about TypeScript, React, APIs, and
-            shipping systems people can trust.
+            Auckland-based. Happy to talk about Python, APIs, AI integrations,
+            React, and shipping systems people can trust.
           </p>
           <div className="flex flex-wrap gap-3">
             <a

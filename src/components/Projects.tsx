@@ -8,13 +8,13 @@ export function Projects() {
       id="projects"
       eyebrow="Projects"
       title="Work that had to be correct."
-      intro="Selected work from clinical production and full-stack product delivery."
+      intro="Clinical production, AI-backed product work, and full-stack builds from the degree."
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {site.projects.map((project, index) => (
           <Reveal
             key={project.name}
-            delay={index * 0.1}
+            delay={index * 0.08}
             direction={index % 2 === 0 ? "left" : "right"}
           >
             <article className="group glass flex h-full flex-col rounded-3xl p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(59,158,255,0.14)] hover:ring-1 hover:ring-accent/30 sm:p-8">
@@ -42,6 +42,16 @@ export function Projects() {
                   </li>
                 ))}
               </ul>
+              {project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex w-fit text-sm font-medium text-accent-deep transition hover:text-accent"
+                >
+                  View on GitHub
+                </a>
+              ) : null}
             </article>
           </Reveal>
         ))}

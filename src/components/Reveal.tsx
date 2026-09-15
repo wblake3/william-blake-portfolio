@@ -58,7 +58,7 @@ export function RevealWords({
       {words.map((word, index) => (
         <motion.span
           key={`${word}-${index}`}
-          className="inline-block pr-[0.28em] last:pr-0"
+          className="inline-block"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4, margin: "0px 0px -8% 0px" }}
@@ -69,6 +69,7 @@ export function RevealWords({
           }}
         >
           {word}
+          {index < words.length - 1 ? "\u00A0" : null}
         </motion.span>
       ))}
     </Tag>

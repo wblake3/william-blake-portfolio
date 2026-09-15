@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Product-minded software engineer in Auckland shipping production systems in healthcare and energy. TypeScript, React, APIs and Python.";
+  "Auckland software engineer focused on AI — strongest across Python, APIs, AI integrations and React. Production work in healthcare and energy.";
 
 const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -33,9 +33,10 @@ export const metadata: Metadata = {
     "William Blake",
     "Software Engineer",
     "Auckland",
-    "TypeScript",
+    "AI",
+    "Python",
     "React",
-    "Next.js",
+    "APIs",
   ],
   openGraph: {
     title: `${site.name} — ${site.title}`,
@@ -50,13 +51,13 @@ export const metadata: Metadata = {
   },
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+const themeScript = `(function(){try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.remove('dark');}catch(e){}})();`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-NZ"
-      className={`${instrument.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${instrument.variable} ${geistMono.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full bg-background font-sans text-foreground">

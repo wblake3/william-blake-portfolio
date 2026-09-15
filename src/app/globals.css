@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7faff;
+  --foreground: #0b1f33;
+  --accent: #3b9eff;
+  --accent-soft: #7ec8ff;
+  --accent-deep: #1a6fd4;
+  --muted: #4a6278;
+  --card: rgba(255, 255, 255, 0.72);
+  --line: rgba(59, 158, 255, 0.22);
+  --glow: rgba(59, 158, 255, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-deep: var(--accent-deep);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-glow: var(--glow);
+  --font-sans: var(--font-instrument);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(59, 158, 255, 0.22);
+  color: var(--foreground);
+}
+
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+}

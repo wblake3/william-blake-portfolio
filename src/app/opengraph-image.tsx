@@ -29,7 +29,7 @@ export default function OpenGraphImage() {
             fontWeight: 600,
           }}
         >
-          Software Engineer · Auckland
+          Software Engineer · Dimension Software · Auckland
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 84, fontWeight: 700, letterSpacing: -2 }}>
@@ -44,8 +44,8 @@ export default function OpenGraphImage() {
               color: "#4a6278",
             }}
           >
-            Production systems in healthcare and energy. TypeScript, React, APIs
-            and Python.
+            SQL, Python, React and TypeScript. Building APIs and MCP
+            integrations.
           </div>
         </div>
       </div>

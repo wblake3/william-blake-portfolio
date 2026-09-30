@@ -9,7 +9,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Skills() {
   return (
-    <Section id="skills" eyebrow="Skills" title="Python, APIs, AI integrations and React.">
+    <Section id="skills" eyebrow="Skills" title="SQL, Python, React, TypeScript, APIs and MCPs.">
       <div className="grid gap-6 md:grid-cols-2">
         {site.skillGroups.map((group, index) => (
           <Reveal

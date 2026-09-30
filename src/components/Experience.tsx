@@ -9,7 +9,7 @@ export function Experience() {
       id="experience"
       eyebrow="Experience"
       title="Production systems in high-stakes domains."
-      intro="Degree, healthcare contract, and energy internship — Jul 2023 to Jun 2026."
+      intro="Now at Dimension Software, after a healthcare contract, an energy internship and my degree."
     >
       <ol className="relative space-y-8 border-l border-line pl-6 sm:pl-8">
         {site.experience.map((item, index) => (
@@ -20,16 +20,18 @@ export function Experience() {
               direction={index % 2 === 0 ? "left" : "right"}
             >
               <article className="glass overflow-hidden rounded-3xl">
-                <div className="relative aspect-[16/9] sm:aspect-[2/1]">
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 900px"
-                    className="object-cover"
-                    style={{ objectPosition: item.imagePosition }}
-                  />
-                </div>
+                {"image" in item ? (
+                  <div className="relative aspect-[16/9] sm:aspect-[2/1]">
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 900px"
+                      className="object-cover"
+                      style={{ objectPosition: item.imagePosition }}
+                    />
+                  </div>
+                ) : null}
                 <div className="p-6 sm:p-8">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-deep">

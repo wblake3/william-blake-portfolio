@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Auckland software engineer focused on AI — strongest across Python, APIs, AI integrations and React. Production work in healthcare and energy.";
+  "Software Engineer at Dimension Software in Auckland — SQL, Python, React and TypeScript, building APIs and MCP integrations. Production work in healthcare and energy.";
 
 const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -34,9 +34,13 @@ export const metadata: Metadata = {
     "Software Engineer",
     "Auckland",
     "AI",
+    "Dimension Software",
+    "SQL",
     "Python",
     "React",
+    "TypeScript",
     "APIs",
+    "MCP",
   ],
   openGraph: {
     title: `${site.name} — ${site.title}`,

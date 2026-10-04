@@ -9,7 +9,7 @@ export const site = {
   hero: {
     eyebrow: "Software Engineer · Dimension Software · Auckland",
     headline: "William Blake",
-    lede: "Passionate about AI and its applications across energy and healthcare. Strongest across Python, APIs, AI integrations and React — shipping production systems people can trust.",
+    lede: "Software Engineer at Dimension Software. Working across SQL, Python, React and TypeScript, building APIs and MCP integrations — shipping production systems people can trust.",
     photo: "/images/william-snow.jpg",
     photoAlt: "William Blake in the mountains",
     primaryCta: { label: "View work", href: "#projects" },

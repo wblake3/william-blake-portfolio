@@ -20,17 +20,19 @@ export function Experience() {
               direction={index % 2 === 0 ? "left" : "right"}
             >
               <article className="glass overflow-hidden rounded-3xl">
-                <div className="relative aspect-[16/9] sm:aspect-[2/1]">
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    fill
-                    quality={90}
-                    sizes="(max-width: 1024px) 100vw, 900px"
-                    className="object-cover"
-                    style={{ objectPosition: item.imagePosition }}
-                  />
-                </div>
+                {"image" in item ? (
+                  <div className="relative aspect-[16/9] sm:aspect-[2/1]">
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt}
+                      fill
+                      quality={90}
+                      sizes="(max-width: 1024px) 100vw, 900px"
+                      className="object-cover"
+                      style={{ objectPosition: item.imagePosition }}
+                    />
+                  </div>
+                ) : null}
                 <div className="p-6 sm:p-8">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-deep">

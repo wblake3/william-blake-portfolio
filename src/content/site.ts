@@ -4,9 +4,10 @@ export const site = {
   location: "Auckland, New Zealand",
   email: "william.blake021@gmail.com",
   linkedin: "https://linkedin.com/in/william-blake-88735936b",
+  githubProfile: "https://github.com/wblake3",
   github: "https://github.com/wblake3/william-blake-portfolio",
   hero: {
-    eyebrow: "Software Engineer · AI · Auckland",
+    eyebrow: "Software Engineer · Dimension Software · Auckland",
     headline: "William Blake",
     lede: "Passionate about AI and its applications across energy and healthcare. Strongest across Python, APIs, AI integrations and React — shipping production systems people can trust.",
     photo: "/images/william-snow.jpg",
@@ -19,27 +20,29 @@ export const site = {
     title: "Build it, ship it, stay with it.",
     body: [
       "I have commercial experience shipping production software in healthcare and energy — two messy, high-stakes domains where the software has to be correct. Comfortable building features from the ground up, owning them through go-live, and becoming useful in a complex domain quickly.",
-      "I am passionate about AI and focused on it for the long term: Python, APIs, model integrations, and React in front of them. I use AI tools well (Cursor, Claude, Copilot), then review the result. Based in Auckland and looking for an office-first team doing hard product work.",
+      "I am now a Software Engineer at Dimension Software, working day to day with SQL, Python, React and TypeScript, and building APIs and MCP (Model Context Protocol) integrations that connect AI to real systems. I use AI tools well (Cursor, Claude, Copilot), then review the result. Based in Auckland.",
     ],
-    education: {
-      qualification: "Bachelor of Computer and Information Sciences",
-      school: "Auckland University of Technology",
-      years: "Jul 2023 — Jun 2026",
-      notes: [
-        "Advanced courses in AI & ML, Data Science, Project Management and codebases.",
-        "Full stack applications including Taxi App, Pub Quiz using OpenAI, Shortest Path Maze Finder and a Digital ISNCSCI web app.",
-        "Member of AUT CSEA, AUT Basketball and AUT Gym.",
-      ],
-    },
     interests: [
       "AI integrations",
-      "Python & APIs",
+      "APIs & MCPs",
       "Hard product problems",
       "Complex domains",
       "Production reliability",
     ],
   },
   experience: [
+    {
+      kind: "work",
+      role: "Software Engineer",
+      org: "Dimension Software",
+      dates: "2026 — Present",
+      summary:
+        "Building software across the stack — SQL and Python on the back end, React and TypeScript on the front end, with APIs and MCP integrations connecting them to AI.",
+      points: [
+        "Develop features end to end with SQL, Python, React and TypeScript.",
+        "Design and integrate APIs, and build MCP (Model Context Protocol) servers and integrations that let AI tools work with real business systems.",
+      ],
+    },
     {
       kind: "work",
       role: "R&D Lead Engineer (Contract)",
@@ -131,12 +134,21 @@ export const site = {
   ],
   skillGroups: [
     {
-      label: "AI & product",
+      label: "Core stack",
       items: [
+        "SQL",
         "Python",
-        "REST APIs",
-        "AI integrations",
         "React",
+        "TypeScript",
+        "REST APIs",
+        "MCP",
+      ],
+    },
+    {
+      label: "AI & cloud",
+      items: [
+        "AI integrations",
+        "Claude",
         "OpenAI API",
         "Azure",
       ],
@@ -144,10 +156,8 @@ export const site = {
     {
       label: "Languages & tools",
       items: [
-        "TypeScript",
         "JavaScript",
         "Java",
-        "SQL",
         "Next.js",
         "Node.js",
         "PostgreSQL",

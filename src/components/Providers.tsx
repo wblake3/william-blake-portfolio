@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useSyncExternalStore } from "react";
 import { MotionConfig } from "framer-motion";
 
 type Theme = "light" | "dark";
@@ -20,23 +20,32 @@ function applyTheme(theme: Theme) {
   window.dispatchEvent(new Event("themechange"));
 }
 
+function subscribeTheme(onChange: () => void) {
+  window.addEventListener("themechange", onChange);
+  return () => window.removeEventListener("themechange", onChange);
+}
+
+function getThemeSnapshot(): Theme {
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
+
+function getServerThemeSnapshot(): Theme {
+  return "dark";
+}
+
 export function useTheme() {
   return useContext(ThemeContext);
 }
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  useEffect(() => {
-    const current = document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-    setTheme(current);
-  }, []);
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot,
+  );
 
   const toggleTheme = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
     try {
       localStorage.setItem("theme", next);
     } catch {

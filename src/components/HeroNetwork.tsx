@@ -36,6 +36,7 @@ export function HeroNetwork() {
     let reduced = prefersReducedMotion();
     let small = isSmallScreen();
     let seeded = false;
+    let inView = true;
 
     const size = () => canvas.getBoundingClientRect();
 
@@ -181,6 +182,7 @@ export function HeroNetwork() {
         draw(false);
         return;
       }
+      if (!inView) return;
       raf = window.requestAnimationFrame(tick);
     };
 
@@ -191,7 +193,8 @@ export function HeroNetwork() {
       pointer.active = true;
     };
 
-    const onPointerLeave = () => {
+    const onPointerOut = (event: PointerEvent) => {
+      if (event.relatedTarget) return;
       pointer.active = false;
     };
 
@@ -210,6 +213,12 @@ export function HeroNetwork() {
     });
     observer.observe(canvas);
 
+    const visibility = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      if (seeded) startLoop();
+    });
+    visibility.observe(canvas);
+
     const boot = () => {
       if (!resize()) {
         raf = window.requestAnimationFrame(boot);
@@ -224,14 +233,15 @@ export function HeroNetwork() {
     };
 
     window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerleave", onPointerLeave);
+    document.addEventListener("pointerout", onPointerOut);
     window.addEventListener("themechange", onThemeChange);
 
     return () => {
       window.cancelAnimationFrame(raf);
       observer.disconnect();
+      visibility.disconnect();
       window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerleave", onPointerLeave);
+      document.removeEventListener("pointerout", onPointerOut);
       window.removeEventListener("themechange", onThemeChange);
       motionQuery.removeEventListener("change", onMotionChange);
     };

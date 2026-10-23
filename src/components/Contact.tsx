@@ -19,7 +19,7 @@ export function Contact() {
           <div className="flex flex-wrap gap-3">
             <a
               href={`mailto:${site.email}`}
-              className="inline-flex h-12 items-center rounded-full bg-accent px-6 text-sm font-medium text-white shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-accent-deep"
+              className="inline-flex h-12 items-center rounded-full bg-cta px-6 text-sm font-medium text-cta-ink shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-cta-hover"
             >
               Email me
             </a>

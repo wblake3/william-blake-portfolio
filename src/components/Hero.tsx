@@ -1,12 +1,27 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import { site } from "@/content/site";
 import { HeroNetwork } from "@/components/HeroNetwork";
-import { RevealWords } from "@/components/Reveal";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+// Hero entrance runs as CSS keyframes so it starts at first paint rather than
+// after hydration. The photo only rises (no fade) so it never delays LCP.
+const enter = (delay: number): CSSProperties => ({
+  animationDelay: `${delay}s`,
+});
+
+function Words({ text, delay }: { text: string; delay: number }) {
+  const words = text.split(" ");
+  return words.map((word, index) => (
+    <span
+      key={`${word}-${index}`}
+      className="hero-in inline-block"
+      style={enter(delay + index * 0.05)}
+    >
+      {word}
+      {index < words.length - 1 ? " " : null}
+    </span>
+  ));
+}
 
 export function Hero() {
   const { hero } = site;
@@ -25,34 +40,25 @@ export function Hero() {
               aria-hidden="true"
               className="pointer-events-none absolute -inset-6 -z-10 bg-background/70 blur-2xl sm:-inset-10"
             />
-            <RevealWords
-              as="p"
-              text={hero.eyebrow}
-              className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-accent-deep"
-            />
-            <RevealWords
-              as="h1"
-              text={hero.headline}
-              delay={0.08}
-              className="mt-5 text-5xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
-            />
-            <motion.p
-              className="mt-6 max-w-xl text-lg leading-8 text-muted sm:text-xl"
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.28, ease }}
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-accent-deep">
+              <Words text={hero.eyebrow} delay={0} />
+            </p>
+            <h1 className="mt-5 text-5xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              <Words text={hero.headline} delay={0.08} />
+            </h1>
+            <p
+              className="hero-in mt-6 max-w-xl text-lg leading-8 text-muted sm:text-xl"
+              style={enter(0.28)}
             >
               {hero.lede}
-            </motion.p>
-            <motion.div
-              className="mt-10 flex flex-wrap items-center gap-4"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.42, ease }}
+            </p>
+            <div
+              className="hero-in mt-10 flex flex-wrap items-center gap-4"
+              style={enter(0.42)}
             >
               <a
                 href={hero.primaryCta.href}
-                className="inline-flex h-12 items-center rounded-full bg-accent px-6 text-sm font-medium text-white shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-accent-deep"
+                className="inline-flex h-12 items-center rounded-full bg-cta px-6 text-sm font-medium text-cta-ink shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-cta-hover"
               >
                 {hero.primaryCta.label}
               </a>
@@ -62,25 +68,24 @@ export function Hero() {
               >
                 {hero.secondaryCta.label}
               </a>
-            </motion.div>
+            </div>
           </div>
-          <motion.div
-            className="relative mx-auto w-full max-w-md lg:max-w-none"
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.2, ease }}
+          <div
+            className="hero-rise relative mx-auto w-full max-w-md lg:max-w-none"
+            style={enter(0.1)}
           >
             <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border border-line shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
               <Image
                 src={hero.photo}
                 alt={hero.photoAlt}
                 fill
-                priority
+                loading="eager"
+                fetchPriority="high"
                 sizes="(max-width: 1024px) 80vw, 420px"
                 className="object-cover object-[center_22%]"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -21,12 +21,9 @@ const geistMono = Geist_Mono({
 const description =
   "Software Engineer at Dimension Software in Auckland — SQL, Python, React and TypeScript, building APIs and MCP integrations. Production work in healthcare and energy.";
 
-const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(site.url),
+  alternates: { canonical: "/" },
   title: `${site.name} — ${site.title}`,
   description,
   authors: [{ name: site.name }],
@@ -47,6 +44,7 @@ export const metadata: Metadata = {
     title: `${site.name} — ${site.title}`,
     description,
     type: "website",
+    url: "/",
     locale: "en_NZ",
   },
   twitter: {
@@ -56,7 +54,25 @@ export const metadata: Metadata = {
   },
 };
 
-const themeScript = `(function(){try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.remove('dark');}catch(e){}})();`;
+// Stored choice wins; otherwise follow the OS. Dark stays the no-JS default.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||(!t&&window.matchMedia('(prefers-color-scheme: light)').matches))document.documentElement.classList.remove('dark');}catch(e){}})();`;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  jobTitle: site.title,
+  url: site.url,
+  image: `${site.url}${site.hero.photo}`,
+  worksFor: { "@type": "Organization", name: site.experience[0].org },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Auckland University of Technology" },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Auckland",
+    addressCountry: "NZ",
+  },
+  sameAs: [site.linkedin, site.githubProfile],
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -70,6 +86,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           id="theme-init"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
         />
         <Providers>
           <Nav />

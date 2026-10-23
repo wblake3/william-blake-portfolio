@@ -2,6 +2,7 @@ export const site = {
   name: "William Blake",
   title: "Software Engineer",
   location: "Auckland, New Zealand",
+  url: "https://williamblake.dev",
   email: "william.blake021@gmail.com",
   linkedin: "https://linkedin.com/in/william-blake-88735936b",
   githubProfile: "https://github.com/wblake3",

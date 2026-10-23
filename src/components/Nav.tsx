@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { site } from "@/content/site";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -8,6 +8,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 140,
@@ -29,8 +31,41 @@ export function Nav() {
     };
   }, [open]);
 
+  // While the mobile menu is open: Escape closes it and Tab stays inside the header.
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+      if (event.key !== "Tab" || !headerRef.current) return;
+
+      const focusable = Array.from(
+        headerRef.current.querySelectorAll<HTMLElement>("a[href], button"),
+      ).filter((el) => el.offsetParent !== null);
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-colors ${
         open
           ? "bg-background"
@@ -72,6 +107,7 @@ export function Nav() {
           </ul>
           <ThemeToggle />
           <button
+            ref={menuButtonRef}
             type="button"
             className="inline-flex h-10 items-center rounded-full border border-accent/50 bg-card px-4 text-sm font-medium text-foreground shadow-sm md:hidden"
             aria-expanded={open}

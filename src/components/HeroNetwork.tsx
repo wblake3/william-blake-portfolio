@@ -40,6 +40,41 @@ export function HeroNetwork() {
 
     const size = () => canvas.getBoundingClientRect();
 
+    // Theme colours and the glow sprite are rebuilt on theme change only,
+    // not per frame, to avoid style recalcs and per-node gradient allocation.
+    const GLOW_SPRITE = 64;
+    const glowSprite = document.createElement("canvas");
+    glowSprite.width = GLOW_SPRITE * 2;
+    glowSprite.height = GLOW_SPRITE * 2;
+    let palette = { nodeFill: "", coreFill: "", linkRgb: "" };
+
+    const readPalette = () => {
+      const styles = getComputedStyle(document.documentElement);
+      const glowRgb = styles.getPropertyValue("--network-glow").trim() || "59, 158, 255";
+      palette = {
+        nodeFill: styles.getPropertyValue("--network-node").trim() || "#1a6fd4",
+        coreFill: styles.getPropertyValue("--network-core").trim() || "#7ec8ff",
+        linkRgb: styles.getPropertyValue("--network-link").trim() || "26, 111, 212",
+      };
+
+      const g = glowSprite.getContext("2d");
+      if (!g) return;
+      g.clearRect(0, 0, glowSprite.width, glowSprite.height);
+      const gradient = g.createRadialGradient(
+        GLOW_SPRITE,
+        GLOW_SPRITE,
+        0,
+        GLOW_SPRITE,
+        GLOW_SPRITE,
+        GLOW_SPRITE,
+      );
+      gradient.addColorStop(0, `rgba(${glowRgb}, 0.45)`);
+      gradient.addColorStop(1, `rgba(${glowRgb}, 0)`);
+      g.fillStyle = gradient;
+      g.fillRect(0, 0, glowSprite.width, glowSprite.height);
+    };
+    readPalette();
+
     const seed = (width: number, height: number) => {
       small = isSmallScreen();
       const count = small ? 32 : 64;
@@ -80,11 +115,7 @@ export function HeroNetwork() {
 
       ctx.clearRect(0, 0, width, height);
 
-      const styles = getComputedStyle(document.documentElement);
-      const nodeFill = styles.getPropertyValue("--network-node").trim() || "#1a6fd4";
-      const coreFill = styles.getPropertyValue("--network-core").trim() || "#7ec8ff";
-      const linkRgb = styles.getPropertyValue("--network-link").trim() || "26, 111, 212";
-      const glowRgb = styles.getPropertyValue("--network-glow").trim() || "59, 158, 255";
+      const { nodeFill, coreFill, linkRgb } = palette;
       const linkDist = small ? 110 : 168;
 
       if (animate) {
@@ -145,20 +176,14 @@ export function HeroNetwork() {
       }
 
       for (const node of nodes) {
-        const glow = ctx.createRadialGradient(
-          node.x,
-          node.y,
-          0,
-          node.x,
-          node.y,
-          node.r * 7,
+        const glowRadius = node.r * 7;
+        ctx.drawImage(
+          glowSprite,
+          node.x - glowRadius,
+          node.y - glowRadius,
+          glowRadius * 2,
+          glowRadius * 2,
         );
-        glow.addColorStop(0, `rgba(${glowRgb}, 0.45)`);
-        glow.addColorStop(1, `rgba(${glowRgb}, 0)`);
-        ctx.fillStyle = glow;
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.r * 7, 0, Math.PI * 2);
-        ctx.fill();
 
         ctx.fillStyle = nodeFill;
         ctx.beginPath();
@@ -229,6 +254,7 @@ export function HeroNetwork() {
     boot();
 
     const onThemeChange = () => {
+      readPalette();
       if (reduced) draw(false);
     };
 

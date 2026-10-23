@@ -17,6 +17,9 @@
   --network-core: #7ec8ff;
   --network-link: 26, 111, 212;
   --network-glow: 59, 158, 255;
+  --cta: #1a6fd4;
+  --cta-hover: #155bb0;
+  --cta-ink: #ffffff;
 }
 
 html.dark {
@@ -36,6 +39,9 @@ html.dark {
   --network-core: #e8f2fb;
   --network-link: 138, 208, 255;
   --network-glow: 74, 168, 255;
+  --cta: #4aa8ff;
+  --cta-hover: #8ad0ff;
+  --cta-ink: #07111c;
 }
 
 @theme inline {
@@ -48,6 +54,9 @@ html.dark {
   --color-card: var(--card);
   --color-line: var(--line);
   --color-glow: var(--glow);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-ink: var(--cta-ink);
   --font-sans: var(--font-instrument);
   --font-mono: var(--font-geist-mono);
 }
@@ -56,9 +65,35 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(32px);
+  }
+}
+
+.hero-in {
+  animation: hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-rise {
+  animation: hero-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .hero-in,
+  .hero-rise {
+    animation: none;
   }
 }
 

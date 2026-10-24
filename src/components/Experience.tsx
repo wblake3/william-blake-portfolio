@@ -9,7 +9,7 @@ export function Experience() {
       id="experience"
       eyebrow="Experience"
       title="Production systems in high-stakes domains."
-      intro="Now at Dimension Software, after a healthcare contract, an energy internship and my degree."
+      intro="Now at Dimension Software. Before that, a Health New Zealand capstone and a Top Energy summer internship, both during my degree."
     >
       <ol className="relative space-y-8 border-l border-line pl-6 sm:pl-8">
         {site.experience.map((item, index) => (

@@ -7,6 +7,7 @@ export const site = {
   linkedin: "https://linkedin.com/in/william-blake-88735936b",
   githubProfile: "https://github.com/wblake3",
   github: "https://github.com/wblake3/william-blake-portfolio",
+  cv: "/William-Blake-CV.pdf",
   hero: {
     eyebrow: "Software Engineer · Dimension Software · Auckland",
     headline: "William Blake",
@@ -21,7 +22,7 @@ export const site = {
     title: "Build it, ship it, stay with it.",
     body: [
       "I have commercial experience shipping production software in healthcare and energy — two messy, high-stakes domains where the software has to be correct. Comfortable building features from the ground up, owning them through go-live, and becoming useful in a complex domain quickly.",
-      "I am now a Software Engineer at Dimension Software, working day to day with SQL, Python, React and TypeScript, and building APIs and MCP (Model Context Protocol) integrations that connect AI to real systems. I use AI tools well (Cursor, Claude, Copilot), then review the result. Based in Auckland.",
+      "I am now a Software Engineer at Dimension Software, where a lot of my work is connecting AI to real systems through MCP (Model Context Protocol) servers. Before that I led a five-person capstone team that shipped a clinical tool for Health New Zealand. I use AI tools well (Cursor, Claude, Copilot), then review the result. Based in Auckland.",
     ],
     interests: [
       "AI integrations",
@@ -36,26 +37,27 @@ export const site = {
       kind: "work",
       role: "Software Engineer",
       org: "Dimension Software",
-      dates: "2026 — Present",
+      dates: "Sep 2026 — Present",
       summary:
-        "Building software across the stack — SQL and Python on the back end, React and TypeScript on the front end, with APIs and MCP integrations connecting them to AI.",
+        "Full-stack feature work, plus the MCP servers that let AI tools read from and act on real business systems.",
       points: [
-        "Develop features end to end with SQL, Python, React and TypeScript.",
+        "Ship features end to end, from the database and back-end services through to the screens people use.",
         "Design and integrate APIs, and build MCP (Model Context Protocol) servers and integrations that let AI tools work with real business systems.",
       ],
     },
     {
       kind: "work",
-      role: "R&D Lead Engineer (Contract)",
-      org: "Health New Zealand / Te Whatu Ora",
+      role: "R&D Lead Engineer (AUT Capstone)",
+      org: "Health New Zealand / Te Whatu Ora · final-year capstone, alongside study",
       dates: "Jul 2025 — Jun 2026",
       image: "/images/health-nz.jpg",
       imageAlt:
         "William Blake with the Health New Zealand spinal cord injury assessment team",
       imagePosition: "center center",
       summary:
-        "Designed, built and delivered production software clinicians used daily — from the screens they touch through to APIs and PostgreSQL.",
+        "Led a team of five building the ISNCSCI Assessment Tool, production software clinicians use daily, as my degree's capstone project.",
       points: [
+        "Set the technical direction, managed the Supabase PostgreSQL database, and built the clinician dashboard and profile section.",
         "Owned work through requirements, implementation, testing, go-live and support, rather than treating ship as the end.",
         "Learned a dense clinical domain fast enough to ship tools people could trust; sat with non-technical users and iterated on awkward flows.",
         "Collaborated through design conversations, reviews and documentation; used Cursor and Claude daily with judgement about where AI helps and where it needs a human.",
@@ -63,7 +65,7 @@ export const site = {
     },
     {
       kind: "work",
-      role: "Digital Systems Engineer (Internship)",
+      role: "Digital Systems Engineer (Summer Internship)",
       org: "Top Energy Ltd",
       dates: "Nov 2025 — Feb 2026",
       image: "/images/top-energy.png",
@@ -103,6 +105,7 @@ export const site = {
       description:
         "React/TypeScript web app for neurological classification of spinal cord injuries, deployed at a major NZ hospital. Assessment views, draft/status workflows and reusable hooks in a high-stakes clinical setting — software that had to be correct when a clinician was with a patient, not only in a demo.",
       stack: ["Next.js", "React", "TypeScript", "Supabase"],
+      role: "Team of 5 — I led the team, set the direction, built the dashboard and profile section, and managed the database.",
       href: "https://github.com/Vrishab17/SpinalCordProject",
     },
     {
@@ -110,27 +113,10 @@ export const site = {
       year: "2024",
       status: "Shipped",
       description:
-        "Full-stack pub quiz with OpenAI for live question generation, plus scoring, persistence and multi-user flows. End-to-end ownership across frontend, API orchestration, Postgres and deployment — making an AI-backed product usable rather than leaving it as a prototype.",
+        "Full-stack pub quiz with OpenAI for live question generation, plus scoring, persistence and multi-user flows. Built to make an AI-backed product usable rather than leaving it as a prototype.",
       stack: ["React", "TypeScript", "Tailwind", "Supabase", "OpenAI API"],
+      role: "Team of 4 — I designed the frontend, including the dashboard and button interactions.",
       href: "https://github.com/rafaelmarcoo/trivia-on-tap",
-    },
-    {
-      name: "Taxi App",
-      year: "2024",
-      status: "Coursework",
-      description:
-        "Full-stack taxi application covering booking, driver and passenger flows, live status and the APIs behind the screens. Practised shipping a complete product path — not a single happy-path demo.",
-      stack: ["React", "TypeScript", "APIs", "SQL"],
-      href: "",
-    },
-    {
-      name: "Shortest Path Maze Finder",
-      year: "2024",
-      status: "Coursework",
-      description:
-        "Interactive maze solver that finds an optimal path through a grid and shows the search as it runs. Built to make the algorithm obvious — the path on screen, not only a result in the console.",
-      stack: ["Python", "Algorithms", "Visualisation"],
-      href: "",
     },
   ],
   skillGroups: [

@@ -44,8 +44,8 @@ export default function OpenGraphImage() {
               color: "#4a6278",
             }}
           >
-            SQL, Python, React and TypeScript. Building APIs and MCP
-            integrations.
+            Production software in healthcare and energy. Now building MCP
+            integrations at Dimension Software.
           </div>
         </div>
       </div>

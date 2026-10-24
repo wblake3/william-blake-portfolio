@@ -105,6 +105,13 @@ export function Nav() {
               </li>
             ))}
           </ul>
+          <a
+            href={site.cv}
+            download
+            className="hidden text-sm font-medium text-accent-deep transition-colors hover:text-accent md:inline"
+          >
+            CV
+          </a>
           <ThemeToggle />
           <button
             ref={menuButtonRef}

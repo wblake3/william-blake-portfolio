@@ -8,7 +8,7 @@ export function Projects() {
       id="projects"
       eyebrow="Projects"
       title="Work that had to be correct."
-      intro="Clinical production, AI-backed product work, and full-stack builds from the degree."
+      intro="Clinical production software and AI-backed product work, both built in teams."
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {site.projects.map((project, index) => (
@@ -31,6 +31,9 @@ export function Projects() {
               </h3>
               <p className="mt-4 flex-1 text-base leading-7 text-muted">
                 {project.description}
+              </p>
+              <p className="mt-4 text-sm font-medium leading-6 text-foreground">
+                {project.role}
               </p>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {project.stack.map((item) => (

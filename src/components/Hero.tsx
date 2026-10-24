@@ -68,6 +68,13 @@ export function Hero() {
               >
                 {hero.secondaryCta.label}
               </a>
+              <a
+                href={site.cv}
+                download
+                className="inline-flex h-12 items-center text-sm font-medium text-accent-deep underline-offset-4 transition hover:text-accent hover:underline"
+              >
+                Download CV
+              </a>
             </div>
           </div>
           <div

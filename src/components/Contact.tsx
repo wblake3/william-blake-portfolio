@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
@@ -12,9 +13,15 @@ export function Contact() {
       <Reveal>
         <div className="glass flex flex-col gap-8 rounded-3xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <p className="max-w-xl text-base leading-7 text-muted sm:text-lg">
-            Auckland-based Software Engineer at Dimension Software. Open to
-            conversations about engineering roles, AI integrations, or anything
-            on this page.
+            Auckland-based Software Engineer at Dimension Software. Taking on
+            freelance automation and integration work for small businesses.{" "}
+            <Link
+              href="/services"
+              className="font-medium text-accent-deep transition-colors hover:text-accent"
+            >
+              See what I can build
+            </Link>
+            .
           </p>
           <div className="flex flex-wrap gap-3">
             <a

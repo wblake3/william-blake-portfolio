@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import Link from "next/link";
 import { site } from "@/content/site";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -85,23 +86,23 @@ export function Nav() {
         style={{ scaleX }}
       />
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
-        <a
-          href="#top"
+        <Link
+          href="/#top"
           className="font-mono text-sm font-semibold tracking-tight text-foreground"
           onClick={() => setOpen(false)}
         >
           WB
-        </a>
+        </Link>
         <div className="flex items-center gap-3 sm:gap-5">
           <ul className="hidden items-center gap-8 md:flex">
             {site.nav.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   className="text-sm text-muted transition-colors hover:text-foreground"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -134,13 +135,13 @@ export function Nav() {
           <ul className="flex flex-col gap-5">
             {site.nav.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   className="text-2xl font-medium tracking-tight text-foreground"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

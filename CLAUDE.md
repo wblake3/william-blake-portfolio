@@ -5,8 +5,10 @@
 William Blake's portfolio site (Next.js 16 App Router, React 19, Tailwind 4, framer-motion), deployed on Vercel.
 
 - `src/app/`: layout, page, metadata routes (OG/Twitter images, sitemap, robots).
-- `src/components/`: one component per page section (Hero, About, Experience, Projects, Skills, Contact).
-- `src/content/`: the text and data the sections render. **The user writes this content themselves.** Don't rewrite copy unless asked; suggest the change instead.
+- `src/app/services/`: the freelance services page (`/services`), linked from the footer rather than the main nav so the home page stays focused on recruiters.
+- `src/components/`: one component per page section (Hero, About, Experience, Projects, Skills, Services, Contact).
+- `src/content/`: the text and data the sections render. Claude may write and edit this copy. Keep the user's plain, specific voice, and say in the summary which lines changed.
+- No prices on the site. Freelance pricing is agreed after the first consult.
 
 ## Workflow
 

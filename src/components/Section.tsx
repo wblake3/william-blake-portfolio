@@ -6,9 +6,17 @@ type SectionProps = {
   title: string;
   children: React.ReactNode;
   intro?: string;
+  titleAs?: "h1" | "h2";
 };
 
-export function Section({ id, eyebrow, title, children, intro }: SectionProps) {
+export function Section({
+  id,
+  eyebrow,
+  title,
+  children,
+  intro,
+  titleAs = "h2",
+}: SectionProps) {
   return (
     <section
       id={id}
@@ -21,7 +29,7 @@ export function Section({ id, eyebrow, title, children, intro }: SectionProps) {
           className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-accent-deep"
         />
         <RevealWords
-          as="h2"
+          as={titleAs}
           text={title}
           delay={0.08}
           className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"

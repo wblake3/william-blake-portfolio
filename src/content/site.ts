@@ -119,6 +119,60 @@ export const site = {
       href: "https://github.com/rafaelmarcoo/trivia-on-tap",
     },
   ],
+  services: {
+    eyebrow: "Freelance",
+    title: "Automations and integrations for small businesses.",
+    intro:
+      "Stuck copying data between Xero, Shopify, spreadsheets and email? I build small, reliable automations that take the manual work off your plate.",
+    offers: [
+      {
+        name: "Workflow automation",
+        description:
+          "Replace a manual, repetitive task with something that runs on its own: syncing orders, chasing invoices, filing documents, sending reports.",
+        examples: ["Xero", "Shopify", "Google Sheets", "Email"],
+      },
+      {
+        name: "Integrations & APIs",
+        description:
+          "Connect two systems that don't talk to each other, with error handling and alerts so it keeps working when something upstream changes.",
+        examples: ["REST APIs", "Webhooks", "Python", "TypeScript"],
+      },
+      {
+        name: "Dashboards & reporting",
+        description:
+          "Turn the spreadsheet everyone edits into one live view of the numbers that matter, refreshed automatically.",
+        examples: ["SQL", "PostgreSQL", "React", "Charts"],
+      },
+      {
+        name: "AI assistants",
+        description:
+          "Connect AI tools like Claude to your own data and systems through MCP servers, so they can look things up and take action safely.",
+        examples: ["Claude", "OpenAI API", "MCP"],
+      },
+    ],
+    process: [
+      { step: "Consult", detail: "A free first chat about the problem and what a fix looks like." },
+      { step: "Scope", detail: "We agree the scope and pricing together, in writing." },
+      { step: "Build", detail: "Working software, usually in one to three weeks." },
+      { step: "Support", detail: "Optional monthly maintenance once it's live." },
+    ],
+    cta: {
+      label: "Start a project",
+      subject: "Freelance project enquiry",
+      body: [
+        "Hi William,",
+        "",
+        "I'd like to chat about a project.",
+        "",
+        "About my business:",
+        "What I'd like to build or automate:",
+        "Tools we use now:",
+        "Ideal timeline:",
+        "",
+        "Thanks,",
+      ].join("\n"),
+    },
+  },
   skillGroups: [
     {
       label: "Core stack",
@@ -154,12 +208,13 @@ export const site = {
       ],
     },
   ],
+  // Root-relative so the links also work from /services.
   nav: [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "/#about" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Contact", href: "/#contact" },
   ],
 } as const;
 

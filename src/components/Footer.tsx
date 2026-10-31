@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 
 export function Footer() {
@@ -8,6 +9,9 @@ export function Footer() {
           {site.name} · {site.location}
         </p>
         <div className="flex flex-wrap items-center gap-5 text-sm text-muted">
+          <Link href="/services" className="transition-colors hover:text-foreground">
+            Freelance
+          </Link>
           <a
             href={`mailto:${site.email}`}
             className="transition-colors hover:text-foreground"

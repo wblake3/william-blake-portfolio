@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
+import { CopyEmail } from "@/components/CopyEmail";
 
 export function Contact() {
   return (
@@ -12,40 +14,49 @@ export function Contact() {
       <Reveal>
         <div className="glass flex flex-col gap-8 rounded-3xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <p className="max-w-xl text-base leading-7 text-muted sm:text-lg">
-            Auckland-based Software Engineer at Dimension Software. Open to
-            conversations about engineering roles, AI integrations, or anything
-            on this page.
+            Auckland-based Software Engineer at Dimension Software. Taking on
+            freelance automation and integration work for small businesses.{" "}
+            <Link
+              href="/services"
+              className="font-medium text-accent-deep transition-colors hover:text-accent"
+            >
+              See what I can build
+            </Link>
+            .
           </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={`mailto:${site.email}`}
-              className="inline-flex h-12 items-center rounded-full bg-cta px-6 text-sm font-medium text-cta-ink shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-cta-hover"
-            >
-              Email me
-            </a>
-            <a
-              href={site.cv}
-              download
-              className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
-            >
-              Download CV
-            </a>
-            <a
-              href={site.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={site.githubProfile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
-            >
-              GitHub
-            </a>
+          <div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex h-12 items-center rounded-full bg-cta px-6 text-sm font-medium text-cta-ink shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-cta-hover"
+              >
+                Email me
+              </a>
+              <a
+                href={site.cv}
+                download
+                className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
+              >
+                Download CV
+              </a>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={site.githubProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
+              >
+                GitHub
+              </a>
+            </div>
+            <CopyEmail className="mt-4" />
           </div>
         </div>
       </Reveal>

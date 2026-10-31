@@ -1,10 +1,11 @@
 import { site } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
+import { CopyEmail } from "@/components/CopyEmail";
 
 export function Services() {
   const { services } = site;
-  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(services.cta.subject)}`;
+  const mailto = `mailto:${site.email}?subject=${encodeURIComponent(services.cta.subject)}&body=${encodeURIComponent(services.cta.body)}`;
 
   return (
     <Section
@@ -61,6 +62,7 @@ export function Services() {
           >
             {services.cta.label}
           </a>
+          <CopyEmail className="mt-4" />
         </div>
       </Reveal>
     </Section>

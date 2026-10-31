@@ -156,7 +156,22 @@ export const site = {
       { step: "Build", detail: "Working software, usually in one to three weeks." },
       { step: "Support", detail: "Optional monthly maintenance once it's live." },
     ],
-    cta: { label: "Start a project", subject: "Freelance project enquiry" },
+    cta: {
+      label: "Start a project",
+      subject: "Freelance project enquiry",
+      body: [
+        "Hi William,",
+        "",
+        "I'd like to chat about a project.",
+        "",
+        "About my business:",
+        "What I'd like to build or automate:",
+        "Tools we use now:",
+        "Ideal timeline:",
+        "",
+        "Thanks,",
+      ].join("\n"),
+    },
   },
   skillGroups: [
     {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@/content/site";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
+import { CopyEmail } from "@/components/CopyEmail";
 
 export function Contact() {
   return (
@@ -23,36 +24,39 @@ export function Contact() {
             </Link>
             .
           </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={`mailto:${site.email}`}
-              className="inline-flex h-12 items-center rounded-full bg-cta px-6 text-sm font-medium text-cta-ink shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-cta-hover"
-            >
-              Email me
-            </a>
-            <a
-              href={site.cv}
-              download
-              className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
-            >
-              Download CV
-            </a>
-            <a
-              href={site.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={site.githubProfile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
-            >
-              GitHub
-            </a>
+          <div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex h-12 items-center rounded-full bg-cta px-6 text-sm font-medium text-cta-ink shadow-[0_10px_30px_rgba(59,158,255,0.28)] transition hover:bg-cta-hover"
+              >
+                Email me
+              </a>
+              <a
+                href={site.cv}
+                download
+                className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
+              >
+                Download CV
+              </a>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={site.githubProfile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center rounded-full border border-line bg-card px-6 text-sm font-medium text-foreground transition hover:border-accent/50"
+              >
+                GitHub
+              </a>
+            </div>
+            <CopyEmail className="mt-4" />
           </div>
         </div>
       </Reveal>
